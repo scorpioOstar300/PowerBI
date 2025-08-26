@@ -1,0 +1,11 @@
+Month On Month Revenue
+
+MOM Revenue = 
+VAR CurrentMonthRevenue = [Total Revenue]
+VAR PreviousMonthRevenue = 
+    CALCULATE(
+        [Total Revenue], 
+        PREVIOUSMONTH('DateTable'[Date])
+    )
+RETURN
+    CurrentMonthRevenue - PreviousMonthRevenue
