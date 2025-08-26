@@ -1,0 +1,9 @@
+QOQ_Revenue_% = 
+VAR CurrentQuarterRevenue = [Total Revenue]
+VAR PreviousQuarterRevenue = 
+    CALCULATE(
+        [Total Revenue], 
+        PREVIOUSQUARTER('DateTable'[Date])
+    )
+RETURN
+    DIVIDE(CurrentQuarterRevenue - PreviousQuarterRevenue, PreviousQuarterRevenue, 0)
