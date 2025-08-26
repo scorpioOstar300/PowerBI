@@ -1,0 +1,14 @@
+Date Table PBI 
+
+DateTable = 
+VAR MinDate = CALCULATE(MIN('ExampleFactTable'[Date ]))
+VAR MaxDate = CALCULATE(MAX('ExampleFactTable'[Date ]))
+RETURN
+ADDCOLUMNS (
+    CALENDAR(MinDate, MaxDate),
+    "Year", YEAR([Date]),
+    "Month", FORMAT([Date], "MMMM"),
+    "Month Number", MONTH([Date]),
+    "Quarter", "Q" & FORMAT([Date], "Q"),
+    "Weekday", FORMAT([Date], "dddd"),
+    "Weekday Number", WEEKDAY([Date], 2)
